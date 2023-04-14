@@ -1,16 +1,17 @@
-import Box from "./box";
-import Cylinder from "./cylinder";
+import Box from './box'
+import Cylinder from './cylinder'
 
-export default function Scene() {
+type Scene = {
+  name: string
+}
+
+// export default function Scene() { // <= works
+const Scene = () => { // <= breaks
   return (
     <>
       <Box
-        position={[
-          1.3716390098959759, 0.23874971746647633, -1.1514982324496617,
-        ]}
-        rotation={[
-          1.6614940569065706, -0.19592501759947428, -0.7104461304064015,
-        ]}
+        position={[1.3716390098959759, 0.23874971746647633, -1.1514982324496617]}
+        rotation={[1.6614940569065706, -0.19592501759947428, -0.7104461304064015]}
       />
 
       <Cylinder position={[-0.232795849248139, 0, -0.6897580472511782]} />
@@ -32,12 +33,8 @@ export default function Scene() {
         <mesh
           castShadow
           receiveShadow
-          rotation={[
-            -0.1575415617624684, 0.47604145007409826, 0.33368857173267885,
-          ]}
-          position={[
-            -1.7000954418256176, -0.3994618954064393, -0.5055619920950951,
-          ]}
+          rotation={[-0.1575415617624684, 0.47604145007409826, 0.33368857173267885]}
+          position={[-1.7000954418256176, -0.3994618954064393, -0.5055619920950951]}
         >
           <boxGeometry args={[1, 1, 1]} />
           <meshStandardMaterial color="#fdfd96" />
@@ -53,5 +50,7 @@ export default function Scene() {
         <meshStandardMaterial color="#eae0da" />
       </mesh>
     </>
-  );
+  )
 }
+
+export default Scene
